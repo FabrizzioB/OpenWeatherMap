@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Portugal ? | Home</title>
+    <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<h1>Weather Portugal API</h1>
+
+<div class="container">
+        <h2>Choose a city for current weather</h2>
+        <form action="/weather" method="get">
+            <label for="cities">Choose a city:</label>
+            <select name="city" id="cities">
+                {% for city_info in cities %}
+                <option value="{{ city_info.city }}">{{ city_info.city }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+<div class="container">
+        <h2>Choose a city for forecast of 8 days</h2>
+        <form action="/weather" method="get">
+            <label for="cities">Choose a city:</label>
+            <select name="city" id="cities2">
+                {% for city_info in cities %}
+                <option value="{{ city_info.city }}">{{ city_info.city }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>
